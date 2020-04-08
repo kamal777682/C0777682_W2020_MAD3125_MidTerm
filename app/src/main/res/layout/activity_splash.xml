@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:drawable/alert_light_frame"
     tools:context=".SplashActivity">
 
     <TextView
@@ -11,18 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="267dp"
+        android:layout_marginTop="17dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:text="Name : KamalpreetKaur"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_red_dark"
+        android:textColor="@android:color/holo_blue_dark"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/id"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/id"
@@ -31,14 +33,28 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="421dp"
         android:text="Student ID : C0777682"
         android:textAlignment="center"
-        android:textColor="@android:color/holo_red_dark"
+        android:textColor="@android:color/holo_blue_dark"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtname" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:cropToPadding="false"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toTopOf="@+id/txtname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/tax" />
 </androidx.constraintlayout.widget.ConstraintLayout>

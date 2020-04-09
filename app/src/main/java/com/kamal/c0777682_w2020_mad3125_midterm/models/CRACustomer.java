@@ -1,5 +1,7 @@
 package com.kamal.c0777682_w2020_mad3125_midterm.models;
 
+import android.text.style.ImageSpan;
+
 import java.io.Serializable;
 
 public class CRACustomer implements Serializable {
@@ -39,6 +41,7 @@ public class CRACustomer implements Serializable {
         this.fwdRRSP = calcarryFwdRRSSP();
         this.totalTaxableInc =calTaxPayable();
         this.taxpayed = calTaxPayed();
+        this.maxRRSP = calMxRRSP();
     }
 
     public String getSinNo() {
@@ -177,7 +180,7 @@ public class CRACustomer implements Serializable {
         this.maxRRSP = maxRRSP;
     }
 
-    public double calProvTax(double grossInc) {
+    public double calProvTax() {
         if (grossInc <= 10582) {
             return grossInc * 0.0;
         } else if (grossInc >= 10582 && grossInc <= 43906) {
@@ -193,7 +196,7 @@ public class CRACustomer implements Serializable {
         }
     }
 
-    public double calFedTax(double grossInc) {
+    public double calFedTax() {
         if (grossInc <= 12069) {
             return grossInc;
         } else if (grossInc >= 12069.01 && grossInc <= 47630) {
@@ -209,7 +212,7 @@ public class CRACustomer implements Serializable {
         }
     }
 
-    public double calCPP(double grossInc) {
+    public double calCPP() {
         double cpp;
         if (grossInc >= 57400) {
             cpp = 57400 * (5.10 / 100);
@@ -219,7 +222,7 @@ public class CRACustomer implements Serializable {
         return cpp;
     }
 
-    public double calEI(double grossInc) {
+    public double calEI() {
         double empIns;
         if (grossInc >= 53100) {
             empIns = 53100 * (1.62 / 100);
@@ -227,6 +230,11 @@ public class CRACustomer implements Serializable {
             empIns = grossInc * (1.62 / 100);
         }
         return empIns;
+    }
+    private double calMxRRSP()
+    {
+        maxRRSP = (grossInc * 0.18);
+        return maxRRSP
     }
 }
 

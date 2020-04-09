@@ -58,6 +58,27 @@ public class TaxCalculator {
         }
     }
 
+    public double calCPP(double grossInc) {
+        double cpp;
+        if (grossInc >= 57400) {
+            cpp = 57400 * (5.10 / 100);
+        } else {
+            cpp = grossInc * (5.10 / 100);
+        }
+        return cpp;
+    }
+
+    public double calEI(double grossInc)
+    {
+        double empIns;
+        if (grossInc >= 53100) {
+            empIns = 53100 * (1.62 / 100);
+        } else {
+            empIns = grossInc * (1.62 / 100);
+        }
+        return empIns;
+    }
+
 
 
 

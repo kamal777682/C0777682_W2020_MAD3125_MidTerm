@@ -50,8 +50,8 @@ public class DataDisplayActivity extends AppCompatActivity  {
 
 
         CRACustomer tempObj = (CRACustomer) getIntent().getSerializableExtra("CRACustomerObj");
-         name.setText("NAME   :   " +tempObj.getLname().toUpperCase()+" "+tempObj.getFname());
         sinNo.setText("SIN NUMBER   :   "+ tempObj.getSinNo());
+        name.setText("NAME   :   " +tempObj.getLname().toUpperCase()+" "+tempObj.getFname());
         dob.setText("DATE OF BIRTH   :   "+tempObj.getDob());
         gender.setText("GENDER   :   "+tempObj.getGender());
         age.setText("AGE   :   "+tempObj.getAge());

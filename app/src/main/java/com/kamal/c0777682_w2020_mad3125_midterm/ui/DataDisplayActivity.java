@@ -49,7 +49,15 @@ public class DataDisplayActivity extends AppCompatActivity  {
         taxpayed = findViewById(R.id.textView17);
 
 
-       
+        CRACustomer tempObj = (CRACustomer) getIntent().getSerializableExtra("CRACustomerObj");
+        name.setText(tempObj.getLname().toUpperCase()+" "+tempObj.getFname());
+        sinNo.setText(tempObj.getSinNo());
+        dob.setText(tempObj.getDob());
+        gender.setText(tempObj.getGender());
+        txDate.setText(tempObj.getTxDate());
+        grossInc.setText(tempObj.getGrossInc());
+        rrsp.setText(tempObj.getRrsp());
+
 
 
     }

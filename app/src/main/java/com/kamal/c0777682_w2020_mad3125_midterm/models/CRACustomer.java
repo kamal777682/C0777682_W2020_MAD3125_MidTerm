@@ -231,7 +231,7 @@ public class CRACustomer implements Serializable {
         }
         return empIns;
     }
-    private double calMxRRSP()
+    public double calMxRRSP()
     {
         maxRRSP = (grossInc * 0.18);
         return maxRRSP;
@@ -240,6 +240,11 @@ public class CRACustomer implements Serializable {
     {
         fwdRRSP = (maxRRSP - rrsp);
         return fwdRRSP;
+    }
+    private  double calTaxPayable()
+    {
+        totalTaxableInc = (grossInc -(calCPP()+calEI()+rrsp));
+        return totalTaxableInc;
     }
 }
 

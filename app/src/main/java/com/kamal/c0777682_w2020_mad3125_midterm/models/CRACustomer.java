@@ -11,6 +11,15 @@ public class CRACustomer implements Serializable {
     private String txDate;
     private String grossInc;
     private String rrsp;
+    private String cpp;
+    private String empIns;
+    private String age;
+    private String fedTax;
+   private String provTax;
+    private String fwdRRSP;
+    private String totalTaxableInc;
+    private String taxpayed;
+
 
 
     public CRACustomer(String sinNo, String fname, String lname, String dob, String gender, String txDate,

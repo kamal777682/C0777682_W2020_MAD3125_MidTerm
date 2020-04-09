@@ -1,10 +1,12 @@
-package com.kamal.c0777682_w2020_mad3125_midterm;
+package com.kamal.c0777682_w2020_mad3125_midterm.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.kamal.c0777682_w2020_mad3125_midterm.R;
 
 public class SplashActivity extends AppCompatActivity
 {

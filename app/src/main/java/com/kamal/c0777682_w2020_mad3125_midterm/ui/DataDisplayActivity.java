@@ -1,9 +1,12 @@
-package com.kamal.c0777682_w2020_mad3125_midterm;
+package com.kamal.c0777682_w2020_mad3125_midterm.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.kamal.c0777682_w2020_mad3125_midterm.R;
+import com.kamal.c0777682_w2020_mad3125_midterm.models.CRACustomer;
 
 import java.io.Serializable;
 

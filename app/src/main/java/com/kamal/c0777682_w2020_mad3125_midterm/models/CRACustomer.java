@@ -88,5 +88,57 @@ public class CRACustomer implements Serializable {
     public void setRrsp(String rrsp) {
         this.rrsp = rrsp;
     }
+    public double calProvTax(double grossInc) {
+        if (grossInc <= 10582) {
+            return grossInc * 0.0;
+        } else if (grossInc >= 10582 && grossInc <= 43906) {
+            return grossInc * (5.05 / 100);
+        } else if (grossInc >= 43906 && grossInc <= 87813) {
+            return grossInc * (0.0915);
+        } else if (grossInc >= 87813 && grossInc <= 150000) {
+            return grossInc * (11.16 / 100);
+        } else if (grossInc >= 150000 && grossInc <= 220000) {
+            return grossInc * (12.16 / 100);
+        } else {
+            return grossInc * (13.16 / 100);
+        }
+    }
+
+    public double calFedTax(double grossInc) {
+        if (grossInc <= 12069) {
+            return grossInc;
+        } else if (grossInc >= 12069.01 && grossInc <= 47630) {
+            return grossInc * (0.15);
+        } else if (grossInc >= 47630.01 && grossInc <= 95259) {
+            return grossInc * (0.205);
+        } else if (grossInc >= 95259.01 && grossInc <= 147667) {
+            return grossInc * (0.26);
+        } else if (grossInc >= 147667.01 && grossInc <= 210371) {
+            return grossInc * (0.29);
+        } else {
+            return grossInc * (0.33);
+        }
+    }
+
+    public double calCPP(double grossInc) {
+        double cpp;
+        if (grossInc >= 57400) {
+            cpp = 57400 * (5.10 / 100);
+        } else {
+            cpp = grossInc * (5.10 / 100);
+        }
+        return cpp;
+    }
+
+    public double calEI(double grossInc) {
+        double empIns;
+        if (grossInc >= 53100) {
+            empIns = 53100 * (1.62 / 100);
+        } else {
+            empIns = grossInc * (1.62 / 100);
+        }
+        return empIns;
+    }
 }
+
 

@@ -31,6 +31,14 @@ public class CRACustomer implements Serializable {
         this.txDate = txDate;
         this.grossInc = grossInc;
         this.rrsp = rrsp;
+        this.age = calAge();
+        this.cpp = calCPP(grossInc);
+        this.empIns = calEI(grossInc);
+        this.fedTax = calFedTax(grossInc);
+        this.provTax = calProvTax(grossInc);
+        this.fwdRRSP = calcarryFwdRRSSP();
+        this.totalTaxableInc =calTaxPayable();
+        this.taxpayed = calTaxPayed();
     }
 
     public String getSinNo() {
@@ -96,6 +104,79 @@ public class CRACustomer implements Serializable {
     public void setRrsp(Double rrsp) {
         this.rrsp = rrsp;
     }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public Double getCpp() {
+        return cpp;
+    }
+
+    public void setCpp(Double cpp) {
+        this.cpp = cpp;
+    }
+
+    public Double getEmpIns() {
+        return empIns;
+    }
+
+    public void setEmpIns(Double empIns) {
+        this.empIns = empIns;
+    }
+
+    public Double getFedTax() {
+        return fedTax;
+    }
+
+    public void setFedTax(Double fedTax) {
+        this.fedTax = fedTax;
+    }
+
+    public Double getProvTax() {
+        return provTax;
+    }
+
+    public void setProvTax(Double provTax) {
+        this.provTax = provTax;
+    }
+
+    public Double getFwdRRSP() {
+        return fwdRRSP;
+    }
+
+    public void setFwdRRSP(Double fwdRRSP) {
+        this.fwdRRSP = fwdRRSP;
+    }
+
+    public Double getTotalTaxableInc() {
+        return totalTaxableInc;
+    }
+
+    public void setTotalTaxableInc(Double totalTaxableInc) {
+        this.totalTaxableInc = totalTaxableInc;
+    }
+
+    public Double getTaxpayed() {
+        return taxpayed;
+    }
+
+    public void setTaxpayed(Double taxpayed) {
+        this.taxpayed = taxpayed;
+    }
+
+    public Double getMaxRRSP() {
+        return maxRRSP;
+    }
+
+    public void setMaxRRSP(Double maxRRSP) {
+        this.maxRRSP = maxRRSP;
+    }
+
     public double calProvTax(double grossInc) {
         if (grossInc <= 10582) {
             return grossInc * 0.0;

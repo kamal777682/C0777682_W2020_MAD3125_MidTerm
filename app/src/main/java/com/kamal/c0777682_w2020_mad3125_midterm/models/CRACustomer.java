@@ -33,7 +33,7 @@ public class CRACustomer implements Serializable {
         this.txDate = txDate;
         this.grossInc = grossInc;
         this.rrsp = rrsp;
-        this.age = calAge();
+        this.age = age;
         this.cpp = calCPP();
         this.empIns = calEI();
         this.fedTax = calFedTax();
@@ -180,7 +180,8 @@ public class CRACustomer implements Serializable {
         this.maxRRSP = maxRRSP;
     }
 
-    public double calProvTax() {
+    private void calAge(){};
+    private double calProvTax() {
         if (grossInc <= 10582) {
             return grossInc * 0.0;
         } else if (grossInc >= 10582 && grossInc <= 43906) {
@@ -196,7 +197,7 @@ public class CRACustomer implements Serializable {
         }
     }
 
-    public double calFedTax() {
+    private double calFedTax() {
         if (grossInc <= 12069) {
             return grossInc;
         } else if (grossInc >= 12069.01 && grossInc <= 47630) {
@@ -212,7 +213,7 @@ public class CRACustomer implements Serializable {
         }
     }
 
-    public double calCPP() {
+    private double calCPP() {
         double cpp;
         if (grossInc >= 57400) {
             cpp = 57400 * (5.10 / 100);
@@ -222,7 +223,7 @@ public class CRACustomer implements Serializable {
         return cpp;
     }
 
-    public double calEI() {
+    private double calEI() {
         double empIns;
         if (grossInc >= 53100) {
             empIns = 53100 * (1.62 / 100);
@@ -231,7 +232,7 @@ public class CRACustomer implements Serializable {
         }
         return empIns;
     }
-    public double calMxRRSP()
+    private double calMxRRSP()
     {
         maxRRSP = (grossInc * 0.18);
         return maxRRSP;

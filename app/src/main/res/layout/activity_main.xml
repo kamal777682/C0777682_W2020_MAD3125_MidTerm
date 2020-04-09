@@ -72,7 +72,12 @@
             android:id="@+id/txtDate"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="@string/enter_your_date_of_birth" />
+            android:hint="@string/enter_your_date_of_birth"
+            android:keepScreenOn="false"
+            android:inputType="none"
+            android:textIsSelectable="true"
+            android:focusable="false"
+            />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -115,18 +120,27 @@
                 android:text="@string/female"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
         </RadioGroup>
     </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_action_date"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtTaxDate"
             android:layout_width="match_parent"
-            android:layout_height="37dp"
-            android:hint="@string/tax_filling_date" />
+            android:layout_height="match_parent"
+
+            android:hint="@string/tax_filling_date">
+
+        </com.google.android.material.textfield.TextInputEditText>
+
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

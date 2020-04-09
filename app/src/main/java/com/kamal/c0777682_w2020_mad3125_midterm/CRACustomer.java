@@ -49,7 +49,7 @@ public class CRACustomer implements Serializable {
     }
 
     public String getFname() {
-        return fname;
+        return fname ;
     }
 
     public void setFname(String fname) {

@@ -20,8 +20,8 @@ public class CRACustomer implements Serializable {
     private String totalTaxableInc;
     private String taxpayed;
 
-    public CRACustomer(String sinNo, String fname, String lname, String dob, String gender, String age, String txDate, String grossInc,
-                       String fedTax, String provTax, String cpp, String empIns, String rrsp, String fwdRRSP, String totalTaxableInc, String taxpayed) {
+    public CRACustomer(String sinNo, String fname, String lname, String dob, String gender, String txDate,
+                       String grossInc, String rrsp) {
         this.sinNo = sinNo;
         this.fname = fname;
         this.lname = lname;

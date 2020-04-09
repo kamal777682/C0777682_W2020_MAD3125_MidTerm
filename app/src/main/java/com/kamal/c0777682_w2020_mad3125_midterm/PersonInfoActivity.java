@@ -14,6 +14,7 @@ import android.widget.DatePicker;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -44,6 +45,24 @@ public class PersonInfoActivity extends AppCompatActivity implements  DatePicker
         txtLname = findViewById(R.id.txtLname);
         dob = findViewById(R.id.txtDate);
         rbgender = findViewById(R.id.rbgender);
+        rbgender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                String gender;
+
+                switch (checkedId)
+                {
+                    case R.id.rbFemale:
+                        gender = "Female";
+                        Toast.makeText(PersonInfoActivity.this, gender,Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.rbMale:
+                        gender = "Male";
+                        Toast.makeText(PersonInfoActivity.this, gender,Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        });
         rbmale = findViewById(R.id.rbMale);
         rbfemale = findViewById(R.id.rbFemale);
         taxDate = findViewById(R.id.txtTaxDate);
@@ -59,17 +78,19 @@ public class PersonInfoActivity extends AppCompatActivity implements  DatePicker
         });
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
-            String sinNo = sin.getText().toString().trim();
-            String fname= txtFname.getText().toString().trim();
-            String lname= txtLname.getText().toString().trim();
-            String birthDate = dob.getText().toString().trim();
-            //String gender= rbgender.getCheckedRadioButtonId();
-            String taxDate= sin.getText().toString().trim();
-            String grossInc= sin.getText().toString().trim();
-            String rrsp= sin.getText().toString().trim();
             @Override
             public void onClick(View v) {
+                String sinN = sin.getText().toString().trim();
+                String fName= txtFname.getText().toString().trim();
+                String lName= txtLname.getText().toString().trim();
+                String gender = String.valueOf(rbgender.getCheckedRadioButtonId());
+                String bDate = dob.getText().toString().trim();
+                String tDate= taxDate.getText().toString().trim();
+                String gInc= grossInc.getText().toString().trim();
+                String rRSP= rrsp.getText().toString().trim();
+                    CRACustomer tempObj = new CRACustomer(sinN,fName,lName,bDate,gender,tDate,gInc,rRSP);
                 Intent mIntent = new Intent(PersonInfoActivity.this,DataDisplayActivity.class);
+                mIntent.putExtra("CRACustomerObj",tempObj);
                 startActivity(mIntent);
             }
         });

@@ -56,8 +56,13 @@ public class DataDisplayActivity extends AppCompatActivity  {
         gender.setText("GENDER   :   "+tempObj.getGender());
         age.setText("AGE   :   "+tempObj.getAge());
         txDate.setText("TAX FILLING DATE   :   "+tempObj.getTxDate());
-        grossInc.setText(tempObj.getGrossInc().toString());
-        rrsp.setText(tempObj.getRrsp().toString());
+        grossInc.setText("GROSS INCOME   :   "+tempObj.getGrossInc());
+        rrsp.setText("RRSP CONTRIBUTED   :   "+tempObj.getRrsp());
+        fedTax.setText("FEDERAL TAX   :   "+tempObj.getFedTax());
+        provTax.setText("PROVINCIAL TAX   :   "+tempObj.getProvTax());
+        cpp.setText("CPP   :   "+tempObj.getCpp());
+        empIns.setText("EI   :   "+tempObj.getEmpIns());
+        
 
 
 

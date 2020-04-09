@@ -2,95 +2,182 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="ou"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".PersonInfoActivity">
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Person Information Form"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/sin"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Social Insaurance Number" />
+            android:hint="@string/social_insaurance_number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtFname"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="First Name " />
+            android:id="@+id/txtFname"
+            android:hint="@string/first_name" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtLname"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtLname"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Last Name " />
+            android:hint="Last Name "/>
 
     </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtDAte"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <Button
+            android:id="@+id/btnDatePicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Date"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@android:color/black" />
+
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtDate"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Enter Your D.O.B" />
+            android:hint="@string/enter_your_date_of_birth" />
+
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
 
-        <TextView
-            android:id="@+id/gender"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Gender :"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
         <RadioGroup
-            android:layout_width="wrap_content"
+            android:id="@+id/rbgender"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/rbMale"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Male"
+            <TextView
+                android:id="@+id/gender"
+                android:layout_width="97dp"
+                android:layout_height="40dp"
+                android:text="@string/gender"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
-        </RadioGroup>
+            <RadioButton
+                android:id="@+id/rbMale"
+                android:layout_width="111dp"
+                android:layout_height="40dp"
+                android:text="@string/male"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-        <RadioButton
-            android:id="@+id/rbFemale"
+
+            <RadioButton
+                android:id="@+id/rbFemale"
+                android:layout_width="183dp"
+                android:layout_height="40dp"
+                android:text="@string/female"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtTaxDate"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:hint="@string/tax_filling_date" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtGrossInc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/enter_your_gross_income" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtRRSP"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/rrsp_contributed" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnGoNext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Female"
-            android:textStyle="bold" />
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="50dp"
+            android:text="@string/submit"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/btnClear"
+            android:layout_width="107dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="50dp"
+            android:text="@string/clear"
+            android:textColor="@android:color/black" />
     </LinearLayout>
 
 </LinearLayout>

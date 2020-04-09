@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">C0777682_W2020_MAD3125_MidTerm</string>
+    <string name="last_name" />
+    <string name="string_last_name" />
+    <string name="clear">clear</string>
+    <string name="submit">SUBMIT</string>
+    <string name="first_name">First Name</string>
+    <string name="gender">Gender :</string>
+    <string name="rrsp_contributed">RRSP Contributed</string>
+    <string name="social_insaurance_number">Social Insaurance Number</string>
+    <string name="male">Male</string>
+    <string name="age">AGE</string>
+    <string name="female">Female</string>
+    <string name="enter_your_gross_income">Enter your Gross Income</string>
+    <string name="tax_filling_date">Tax Filling Date</string>
+    <string name="enter_your_date_of_birth">Enter Your Date of Birth</string>
 </resources>

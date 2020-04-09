@@ -134,6 +134,7 @@
             android:id="@+id/txtGrossInc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:keepScreenOn="false"
             android:hint="@string/enter_your_gross_income" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -145,6 +146,7 @@
             android:id="@+id/txtRRSP"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:keepScreenOn="false"
             android:hint="@string/rrsp_contributed" />
     </com.google.android.material.textfield.TextInputLayout>
 

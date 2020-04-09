@@ -34,10 +34,10 @@ public class CRACustomer implements Serializable {
         this.grossInc = grossInc;
         this.rrsp = rrsp;
         this.age = calAge();
-        this.cpp = calCPP(grossInc);
-        this.empIns = calEI(grossInc);
-        this.fedTax = calFedTax(grossInc);
-        this.provTax = calProvTax(grossInc);
+        this.cpp = calCPP();
+        this.empIns = calEI();
+        this.fedTax = calFedTax();
+        this.provTax = calProvTax();
         this.fwdRRSP = calcarryFwdRRSSP();
         this.totalTaxableInc =calTaxPayable();
         this.taxpayed = calTaxPayed();

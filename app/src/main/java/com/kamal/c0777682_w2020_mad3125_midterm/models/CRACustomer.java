@@ -3,6 +3,8 @@ package com.kamal.c0777682_w2020_mad3125_midterm.models;
 import android.text.style.ImageSpan;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -41,19 +43,19 @@ public class CRACustomer implements Serializable {
         this.fedTax = calFedTax();
         this.provTax = calProvTax();
         this.fwdRRSP = calcarryFwdRRSSP();
-        this.totalTaxableInc =calTaxPayable();
+        this.totalTaxableInc = calTaxPayable();
         this.taxpayed = calTaxPayed();
         this.maxRRSP = calMxRRSP();
     }
 
     private int calAge(String dob) {
-        return age= 18;
+        return age = 18;
     }
-    private  String caltaxFillingDate()
-    {
-        SimpleDateFormat dateFormat =  new SimpleDateFormat("dd/MM/YYYY");
+
+    private String caltaxFillingDate() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY");
         Date date = Calendar.getInstance().getTime();
-        return  dateFormat.format(date);
+        return dateFormat.format(date);
     }
 
     public String getSinNo() {
@@ -192,37 +194,38 @@ public class CRACustomer implements Serializable {
         this.maxRRSP = maxRRSP;
     }
 
-    private double calProvTax() {
-        if (grossInc <= 10582) {
-            return grossInc * 0.0;
-        } else if (grossInc >= 10582 && grossInc <= 43906) {
-            return grossInc * (5.05 / 100);
-        } else if (grossInc >= 43906 && grossInc <= 87813) {
-            return grossInc * (0.0915);
-        } else if (grossInc >= 87813 && grossInc <= 150000) {
-            return grossInc * (11.16 / 100);
-        } else if (grossInc >= 150000 && grossInc <= 220000) {
-            return grossInc * (12.16 / 100);
-        } else {
-            return grossInc * (13.16 / 100);
-        }
-    }
 
-    private double calFedTax() {
-        if (grossInc <= 12069) {
-            return grossInc;
-        } else if (grossInc >= 12069.01 && grossInc <= 47630) {
-            return grossInc * (0.15);
-        } else if (grossInc >= 47630.01 && grossInc <= 95259) {
-            return grossInc * (0.205);
-        } else if (grossInc >= 95259.01 && grossInc <= 147667) {
-            return grossInc * (0.26);
-        } else if (grossInc >= 147667.01 && grossInc <= 210371) {
-            return grossInc * (0.29);
-        } else {
-            return grossInc * (0.33);
-        }
-    }
+ private double calProvTax() {
+         if (grossInc <= 10582) {
+             return grossInc * 0.0;
+         } else if (grossInc >= 10582 && grossInc <= 43906) {
+             return grossInc * (5.05 / 100);
+         } else if (grossInc >= 43906 && grossInc <= 87813) {
+             return grossInc * (0.0915);
+         } else if (grossInc >= 87813 && grossInc <= 150000) {
+             return grossInc * (11.16 / 100);
+         } else if (grossInc >= 150000 && grossInc <= 220000) {
+             return grossInc * (12.16 / 100);
+         } else {
+             return grossInc * (13.16 / 100);
+         }
+     }
+
+     private double calFedTax() {
+         if (grossInc <= 12069) {
+             return grossInc;
+         } else if (grossInc >= 12069.01 && grossInc <= 47630) {
+             return grossInc * (0.15);
+         } else if (grossInc >= 47630.01 && grossInc <= 95259) {
+             return grossInc * (0.205);
+         } else if (grossInc >= 95259.01 && grossInc <= 147667) {
+             return grossInc * (0.26);
+         } else if (grossInc >= 147667.01 && grossInc <= 210371) {
+             return grossInc * (0.29);
+         } else {
+             return grossInc * (0.33);
+         }
+     }
 
     private double calCPP() {
         double cpp;
@@ -231,8 +234,12 @@ public class CRACustomer implements Serializable {
         } else {
             cpp = grossInc * (5.10 / 100);
         }
+        //https://mkyong.com/java/how-to-round-double-float-value-to-2-decimal-points-in-java/
+        BigDecimal bigDecimal = new BigDecimal(cpp).setScale(2, RoundingMode.UP);
+        cpp = bigDecimal.doubleValue();
         return cpp;
     }
+
 
     private double calEI() {
         double empIns;
@@ -241,21 +248,32 @@ public class CRACustomer implements Serializable {
         } else {
             empIns = grossInc * (1.62 / 100);
         }
+        BigDecimal bigDecimal = new BigDecimal(empIns).setScale(2, RoundingMode.UP);
+        empIns = bigDecimal.doubleValue();
         return empIns;
     }
-    private double calMxRRSP()
-    {
-        maxRRSP = (grossInc * 0.18);
+
+    private double calMxRRSP() {
+        if (rrsp > maxRRSP) {
+            return maxRRSP;
+        }else
+        {maxRRSP = rrsp-5
+
+        }
+        BigDecimal bigDecimal = new BigDecimal(maxRRSP).setScale(2, RoundingMode.UP);
+        maxRRSP = bigDecimal.doubleValue();
         return maxRRSP;
     }
-    private double calcarryFwdRRSSP()
-    {
-        fwdRRSP = (maxRRSP - rrsp);
+
+    private double calcarryFwdRRSSP() {
+        fwdRRSP = (calMxRRSP() - rrsp);
+        BigDecimal bigDecimal = new BigDecimal(fwdRRSP).setScale(2, RoundingMode.UP);
+        fwdRRSP = bigDecimal.doubleValue();
         return fwdRRSP;
     }
-    private  double calTaxPayable()
-    {
-        totalTaxableInc = (grossInc -(calCPP()+calEI()+rrsp));
+
+    private double calTaxPayable() {
+        totalTaxableInc = (grossInc - (calCPP() + calEI() + rrsp));
         return totalTaxableInc;
     }
     private double calTaxPayed()

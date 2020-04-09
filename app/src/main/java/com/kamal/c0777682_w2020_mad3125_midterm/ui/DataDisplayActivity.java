@@ -62,9 +62,17 @@ public class DataDisplayActivity extends AppCompatActivity  {
         provTax.setText("PROVINCIAL TAX   :   "+tempObj.getProvTax());
         cpp.setText("CPP   :   "+tempObj.getCpp());
         empIns.setText("EI   :   "+tempObj.getEmpIns());
-        
-
-
-
+        Double carryfwdRRSP = tempObj.getFwdRRSP();
+        if(carryfwdRRSP >0)
+        {
+            fwdRRSP.setText("CARRY FORWARD RRSP   :   "+tempObj.getFwdRRSP());
+        }
+        else
+        {
+            fwdRRSP.setText("CARRY FORWARD RRSP   :   "+tempObj.getFwdRRSP());
+            fwdRRSP.setTextColor(getResources().getColor(R.color.holo_dark_red));
+        }
+        totalTaxableInc.setText("TOTAL TAXABLE INCOME   :   "+tempObj.getTotalTaxableInc());
+        taxpayed.setText("TEXT PAYED  :  "+tempObj.getTaxpayed());
     }
 }

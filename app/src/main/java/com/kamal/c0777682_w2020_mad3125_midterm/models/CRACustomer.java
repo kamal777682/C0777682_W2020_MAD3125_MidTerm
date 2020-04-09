@@ -8,22 +8,21 @@ public class CRACustomer implements Serializable {
     private String lname;
     private String dob;
     private String gender;
+    private int age;
     private String txDate;
-    private String grossInc;
-    private String rrsp;
-    private String cpp;
-    private String empIns;
-    private String age;
-    private String fedTax;
-   private String provTax;
-    private String fwdRRSP;
-    private String totalTaxableInc;
-    private String taxpayed;
-
-
+    private Double grossInc;
+    private Double rrsp;
+    private Double cpp;
+    private Double empIns;
+    private Double fedTax;
+    private Double provTax;
+    private Double fwdRRSP;
+    private Double totalTaxableInc;
+    private Double taxpayed;
+    private Double maxRRSP;
 
     public CRACustomer(String sinNo, String fname, String lname, String dob, String gender, String txDate,
-                       String grossInc, String rrsp) {
+                       Double grossInc, Double rrsp) {
         this.sinNo = sinNo;
         this.fname = fname;
         this.lname = lname;
@@ -82,19 +81,19 @@ public class CRACustomer implements Serializable {
         this.txDate = txDate;
     }
 
-    public String getGrossInc() {
+    public Double getGrossInc() {
         return grossInc;
     }
 
-    public void setGrossInc(String grossInc) {
+    public void setGrossInc(Double grossInc) {
         this.grossInc = grossInc;
     }
 
-    public String getRrsp() {
+    public Double getRrsp() {
         return rrsp;
     }
 
-    public void setRrsp(String rrsp) {
+    public void setRrsp(Double rrsp) {
         this.rrsp = rrsp;
     }
     public double calProvTax(double grossInc) {

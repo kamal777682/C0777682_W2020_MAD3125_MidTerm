@@ -9,7 +9,7 @@ import com.kamal.c0777682_w2020_mad3125_midterm.R;
 import com.kamal.c0777682_w2020_mad3125_midterm.models.CRACustomer;
 
 import java.io.Serializable;
-import com.kamal.c0777682_w2020_mad3125_midterm.models.TaxCalculator;
+//import com.kamal.c0777682_w2020_mad3125_midterm.models.TaxCalculator;
 public class DataDisplayActivity extends AppCompatActivity  {
     private TextView sinNo;
     private TextView name;
@@ -55,8 +55,8 @@ public class DataDisplayActivity extends AppCompatActivity  {
         dob.setText(tempObj.getDob());
         gender.setText(tempObj.getGender());
         txDate.setText(tempObj.getTxDate());
-        grossInc.setText(tempObj.getGrossInc());
-        rrsp.setText(tempObj.getRrsp());
+        grossInc.setText(tempObj.getGrossInc().toString());
+        rrsp.setText(tempObj.getRrsp().toString());
 
 
 

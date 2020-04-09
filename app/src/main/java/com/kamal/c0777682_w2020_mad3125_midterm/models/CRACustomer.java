@@ -246,6 +246,11 @@ public class CRACustomer implements Serializable {
         totalTaxableInc = (grossInc -(calCPP()+calEI()+rrsp));
         return totalTaxableInc;
     }
+    private double calTaxPayed()
+    {
+        taxpayed =  calFedTax() + calProvTax();
+        return taxpayed;
+    }
 }
 
 

@@ -3,6 +3,9 @@ package com.kamal.c0777682_w2020_mad3125_midterm.models;
 import android.text.style.ImageSpan;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class CRACustomer implements Serializable {
     private String sinNo;
@@ -23,17 +26,16 @@ public class CRACustomer implements Serializable {
     private Double taxpayed;
     private Double maxRRSP;
 
-    public CRACustomer(String sinNo, String fname, String lname, String dob, String gender, String txDate,
-                       Double grossInc, Double rrsp) {
+    public CRACustomer(String sinNo, String fname, String lname, String dob, String gender, Double grossInc, Double rrsp) {
         this.sinNo = sinNo;
         this.fname = fname;
         this.lname = lname;
         this.dob = dob;
         this.gender = gender;
-        this.txDate = txDate;
+        this.txDate = caltaxFillingDate();
         this.grossInc = grossInc;
         this.rrsp = rrsp;
-        this.age = age;
+        this.age = calAge(dob);
         this.cpp = calCPP();
         this.empIns = calEI();
         this.fedTax = calFedTax();
@@ -42,6 +44,16 @@ public class CRACustomer implements Serializable {
         this.totalTaxableInc =calTaxPayable();
         this.taxpayed = calTaxPayed();
         this.maxRRSP = calMxRRSP();
+    }
+
+    private int calAge(String dob) {
+        return age= 18;
+    }
+    private  String caltaxFillingDate()
+    {
+        SimpleDateFormat dateFormat =  new SimpleDateFormat("dd/MM/YYYY");
+        Date date = Calendar.getInstance().getTime();
+        return  dateFormat.format(date);
     }
 
     public String getSinNo() {
@@ -180,7 +192,6 @@ public class CRACustomer implements Serializable {
         this.maxRRSP = maxRRSP;
     }
 
-    private void calAge(){};
     private double calProvTax() {
         if (grossInc <= 10582) {
             return grossInc * 0.0;

@@ -49,7 +49,7 @@ public class CRACustomer implements Serializable {
     }
 
     private int calAge(String dob) {
-        return age = 18;
+        return age = 25;
     }
 
     private String caltaxFillingDate() {
@@ -195,37 +195,73 @@ public class CRACustomer implements Serializable {
     }
 
 
- private double calProvTax() {
-         if (grossInc <= 10582) {
-             return grossInc * 0.0;
-         } else if (grossInc >= 10582 && grossInc <= 43906) {
-             return grossInc * (5.05 / 100);
-         } else if (grossInc >= 43906 && grossInc <= 87813) {
-             return grossInc * (0.0915);
-         } else if (grossInc >= 87813 && grossInc <= 150000) {
-             return grossInc * (11.16 / 100);
-         } else if (grossInc >= 150000 && grossInc <= 220000) {
-             return grossInc * (12.16 / 100);
+    private double calProvTax() {
+        if (grossInc <= 10582) {
+            return grossInc * 0.0;
+        } else if (grossInc >= 10582 && grossInc <= 43906) {
+            return grossInc * (5.05 / 100);
+        } else if (grossInc >= 43906 && grossInc <= 87813) {
+            return grossInc * (0.0915);
+        } else if (grossInc >= 87813 && grossInc <= 150000) {
+            return grossInc * (11.16 / 100);
+        } else if (grossInc >= 150000 && grossInc <= 220000) {
+            return grossInc * (12.16 / 100);
+        } else {
+            return grossInc * (13.16 / 100);
+        }
+    }
+/*double taxRate = 0.0;
+     double tempTax = 0.0;
+     if (grossInc > 10582.0d) {
+         tempTax = grossInc - 10582 * 0.0;
+         if (tempTax > 43906.0) {
+             tempTax = tempTax - (43906.0 - 10582.0);
+             taxRate = taxRate + ((43906.0 - 10582.0) * 0.505);
+             if (tempTax > 87813.00) {
+                 tempTax = tempTax - (87813.00 - 43906.00);
+                 taxRate = taxpayed + ((87813.00 - 43906.00) * 0.0915);
+                 if (tempTax > 150000.00) {
+                     tempTax = tempTax - (150000 - 87813);
+                     taxRate = taxRate + ((150000 - 87813) * .01116);
+                     if (tempTax > 220000.00) {
+                         tempTax = tempTax - (220000.00 - 150000.00);
+                         taxRate = taxRate + (220000.00 - 150000.00) * 0.1216;
+                         if (tempTax > 220000.01) {
+                             taxRate = taxRate + (tempTax * 0.1316);
+                         }
+                     } else {
+                         taxRate = taxRate + (tempTax * 0.1316);
+                     }
+                 } else {
+                     taxRate = taxRate + (tempTax * 0.1216);
+                 }
+             } else {
+                 taxRate = taxRate + (tempTax * 0.1116);
+             }
          } else {
-             return grossInc * (13.16 / 100);
+             taxRate = taxRate + (tempTax * 0.0915);
          }
+     } else {
+         taxRate = taxRate + (tempTax * 0.0505);
      }
-
-     private double calFedTax() {
-         if (grossInc <= 12069) {
-             return grossInc;
-         } else if (grossInc >= 12069.01 && grossInc <= 47630) {
-             return grossInc * (0.15);
-         } else if (grossInc >= 47630.01 && grossInc <= 95259) {
-             return grossInc * (0.205);
-         } else if (grossInc >= 95259.01 && grossInc <= 147667) {
-             return grossInc * (0.26);
-         } else if (grossInc >= 147667.01 && grossInc <= 210371) {
-             return grossInc * (0.29);
-         } else {
-             return grossInc * (0.33);
-         }
-     }
+     return taxRate;
+ }
+*/
+    private double calFedTax() {
+        if (grossInc <= 12069) {
+            return grossInc;
+        } else if (grossInc >= 12069.01 && grossInc <= 47630) {
+            return grossInc * (0.15);
+        } else if (grossInc >= 47630.01 && grossInc <= 95259) {
+            return grossInc * (0.205);
+        } else if (grossInc >= 95259.01 && grossInc <= 147667) {
+            return grossInc * (0.26);
+        } else if (grossInc >= 147667.01 && grossInc <= 210371) {
+            return grossInc * (0.29);
+        } else {
+            return grossInc * (0.33);
+        }
+    }
 
     private double calCPP() {
         double cpp;
@@ -254,12 +290,7 @@ public class CRACustomer implements Serializable {
     }
 
     private double calMxRRSP() {
-        if (rrsp > maxRRSP) {
-            return maxRRSP;
-        }else
-        {maxRRSP = rrsp-5
-
-        }
+        maxRRSP = grossInc * (18/100);
         BigDecimal bigDecimal = new BigDecimal(maxRRSP).setScale(2, RoundingMode.UP);
         maxRRSP = bigDecimal.doubleValue();
         return maxRRSP;
@@ -282,5 +313,3 @@ public class CRACustomer implements Serializable {
         return taxpayed;
     }
 }
-
-

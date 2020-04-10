@@ -51,29 +51,30 @@ public class DataDisplayActivity extends AppCompatActivity  {
 
         CRACustomer tempObj = (CRACustomer) getIntent().getSerializableExtra("CRACustomerObj");
 
-        sinNo.setText("SIN NUMBER   :   "+ tempObj.getSinNo());
-        name.setText("NAME   :   " +tempObj.getLname().toUpperCase()+" "+tempObj.getFname());
-        dob.setText("DATE OF BIRTH   :   "+tempObj.getDob());
-        gender.setText("GENDER   :   "+tempObj.getGender());
-        age.setText("AGE   :   "+tempObj.getAge());
+        sinNo.setText("SIN NUMBER        :   "+ tempObj.getSinNo());
+        name.setText("NAME                    :   " +tempObj.getLname().toUpperCase()+" "+tempObj.getFname());
+        dob.setText("DATE OF BIRTH      :   "+tempObj.getDob());
+        gender.setText("GENDER                   :   "+tempObj.getGender());
+        age.setText("AGE                         :   "+tempObj.getAge());
         txDate.setText("TAX FILLING DATE   :   "+tempObj.getTxDate());
-        grossInc.setText("GROSS INCOME   :   "+tempObj.getGrossInc());
-        rrsp.setText("RRSP CONTRIBUTED   :   "+tempObj.getRrsp());
-        fedTax.setText("FEDERAL TAX   :   "+tempObj.getFedTax());
-        provTax.setText("PROVINCIAL TAX   :   "+tempObj.getProvTax());
-        cpp.setText("CPP   :   "+tempObj.getCpp());
-        empIns.setText("EI   :   "+tempObj.getEmpIns());
+        grossInc.setText("GROSS INCOME      :   $"+tempObj.getGrossInc());
+        rrsp.setText("RRSP CONTRIBUTED      :   $"+tempObj.getRrsp());
+        fedTax.setText("FEDERAL TAX          :   $"+tempObj.getFedTax());
+        provTax.setText("PROVINCIAL TAX     :   $"+tempObj.getProvTax());
+        cpp.setText("CPP                         :   $"+tempObj.getCpp());
+        empIns.setText("EI                       :   $"+tempObj.getEmpIns());
+        //maxRRSP.setText("MAXIMUM RRSP   :   "+tempObj.getEmpIns());
         Double carryfwdRRSP = tempObj.getFwdRRSP();
         if(carryfwdRRSP >0)
         {
-            fwdRRSP.setText("CARRY FORWARD RRSP   :   "+tempObj.getFwdRRSP());
+            fwdRRSP.setText("CARRY FORWARD RRSP      :   $"+tempObj.getFwdRRSP());
         }
         else
         {
-            fwdRRSP.setText("CARRY FORWARD RRSP   :   "+tempObj.getFwdRRSP());
-           // fwdRRSP.setTextColor(getResources().getColor(R.color.holo_dark_red));
+            fwdRRSP.setText("CARRY FORWARD RRSP      :   $"+tempObj.getFwdRRSP());
+          // fwdRRSP.setTextColor(getResources().getColor(R.color.holo_dark_red));
         }
-        totalTaxableInc.setText("TOTAL TAXABLE INCOME   :   "+tempObj.getTotalTaxableInc());
-       taxpayed.setText("TAX PAYED  :  "+tempObj.getTaxpayed());
+        totalTaxableInc.setText("TOTAL TAXABLE INCOME    :   $"+tempObj.getTotalTaxableInc());
+       taxpayed.setText("TAX PAYED  :       $"+tempObj.getTaxpayed());
     }
 }
